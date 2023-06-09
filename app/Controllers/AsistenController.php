@@ -131,7 +131,7 @@ class AsistenController extends BaseController
             'asisten' => $asisten
         ];
 
-        if($userpass['username'] == $login['username'] && $userpass['password'] == $login['password']) { // mengecek kalau usr dan pws nya admin dan 123. kalau iya maka akan buat session 
+        if($userpass['username'] == $login['Username'] && $userpass['password'] == $login['Password']) { // mengecek kalau usr dan pws nya admin dan 123. kalau iya maka akan buat session 
             $session = session(); //buat session 
             $session->set('pengguna', $userpass['username']); //session ini akan mencangkup nilai user dengan nama atribut pengguna
             return view ('AsistenView', $data); //nampilin tabel asisten 

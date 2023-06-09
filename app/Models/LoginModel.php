@@ -13,7 +13,7 @@
         public function ambil($username){
             //akan terhubung ke table database asisten
             //nanti akan dicek nim nya, dimana akan mengambil row pertama
-            return $this->where(['username' => $username]) -> first();
+            return $this->where(['Username' => $username]) -> first();
         }
     }
 ?>

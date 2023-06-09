@@ -71,7 +71,7 @@
     <div class="container mt-3">
       <div class="jumbotron text-left ">
         <br>
-        <h2>Data sukses ditampilkan  </h2><br>
+        <h2>Data sukses ditambahkan  </h2><br>
       </div>
     </div>
 </body>
