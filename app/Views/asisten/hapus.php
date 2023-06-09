@@ -71,7 +71,7 @@
   <div class="container mt-3">
     <div class="container mt-3">
       <div class="jumbotron text-center ">
-        <h1>Hapus Data</h1>
+        <h1>Hapus Data </h1>
       </div>
       <form method="POST" action="/asisten/delete">
         <div class="mb-3 mt-3">
