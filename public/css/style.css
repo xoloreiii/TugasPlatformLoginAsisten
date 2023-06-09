@@ -1,0 +1,12 @@
+
+.jumbotron {
+  padding: 3rem 1rem;
+}
+.navbar .navbar-nav .nav-link:hover {
+  background: rgba(130, 38, 126, 0.7);
+  border-radius: 6px;
+}
+nav ul li a:hover {
+  background: rgba(130, 38, 126, 0.7);
+  border-radius: 6px;
+}
