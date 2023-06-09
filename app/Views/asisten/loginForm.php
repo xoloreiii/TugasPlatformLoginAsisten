@@ -68,7 +68,6 @@
   <div class="container mt-3">
     <div class="container mt-3">
       <div class="jumbotron text-center ">
-        <h1>Login Page</h1>
       </div>
       
       <form method="POST" action="/asisten/check">

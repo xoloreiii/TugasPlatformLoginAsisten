@@ -1,0 +1,19 @@
+{
+  "folders": [
+	{
+		"path": "../modul9"
+	},
+	{
+		"path": "D:/Reiii/Kuliah/Mata Kuliah/Semester 4/Pemrograman Berbasis Platfrom AP"
+	},
+	{
+		"path": "D:/Reiii/Kuliah/Mata Kuliah/Semester 4/Platfrom Ian"
+	},
+	{
+		"path": ".."
+	}
+],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "htdocs"
+  }
+}
