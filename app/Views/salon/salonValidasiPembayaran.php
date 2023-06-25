@@ -103,6 +103,34 @@
     </nav>
 
     <body>
+        <?php
+            //Connection server
+            $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $dbname = "salon";
+
+            //creact connection
+            $conn = new mysqli($servername, $username, $password, $dbname);
+
+            //check connection
+            if ($conn->connect_error) {
+                die("Connection Failed: " . $conn->connect_error);
+            }
+
+            //Update finish
+            if (isset($_GET['selesai'])) {
+            $id = $_GET['selesai'];
+            $sql = "UPDATE booking SET status='Lunas' WHERE nohp=$id";
+            if ($conn-> query($sql) === TRUE) {
+                header("Location: " . $_SERVER['PHP_SELF']);
+                exit();
+            } else {
+                echo "Error updating record: " . $conn->error;
+            }
+            $query = mysqli_query($conn, $sql);
+            }
+        ?>
 
         <div class="container-fluid">
             <table>
@@ -134,19 +162,9 @@
                                 <?php echo "-"; ?>
                             <?php } ?>
                         </td>
+                        <td><?= $bo['status'] ?></td>
                         <td>
-                            <?php if ($bo['pembayaran'] == "QRIS") { ?>
-                                <?php echo "Lunas"; ?>
-                            <?php } else { ?>
-                                <?php echo "Belum Lunas"; ?>
-                            <?php } ?>
-                        </td>
-                        <td>
-                            <form method="post" action="/salon/updateValidasi">
-                                <?= csrf_field() ?>
-                                <input type="hidden" name="status" value="Lunas">
-                                <button type="submit" class="login" style="text-align:center; display: inline-block; text-decoration: none; border: none; background-color: #BD7272; color: #fff; padding: 10px 20px;">Validasi</button>
-                            </form>
+                                <?php echo "<a href='" . $_SERVER['PHP_SELF'] . "?selesai=" . $bo["nohp"] . "'>Selesai</a> "; ?>
                         </td>
                         </td>
                     </tr>

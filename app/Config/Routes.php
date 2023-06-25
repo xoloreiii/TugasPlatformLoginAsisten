@@ -32,7 +32,7 @@ $routes->setAutoRoute(true); //Untuk mencari jalan sendiri ke database secara ot
 // route since we don't have to scan directories.
 
 // === ROUTES UNTUK TODOLIST === 
-// $routes->get('/todolist', 'todolist::index');
+$routes->get('/todolist', 'todolist::index');
 
 // === ROUTES UNTUK ASISTEN ===
 //asisten itu nama untuk mempersingkat nama dari asistencontroller

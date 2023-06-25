@@ -201,10 +201,10 @@ class SalonController extends BaseController
             if ($post['pembayaran'] != 'CASH') {
                 $img = $this->request->getFile('photo');
                 $post['photo'] = $img->getRandomName();
-                $post['status'] ='Belum Lunas';
+                $post['status'] ='Lunas';
             } else {
                 $post['photo'] = '-';
-                $post['status'] = 'Lunas';
+                $post['status'] = 'Belum Lunas';
             }
 
             
@@ -237,18 +237,18 @@ class SalonController extends BaseController
     public function updateValidasi()
     {
         if ($this->request->getMethod() === 'post') {
-            $status = $this->request->getPost('status');
+            //$status = $this->request->getPost('status');
 
             $db = \Config\Database::connect();
             $Builder = $db->table('booking');
 
             $Builder->where('status', 'Belum Lunas'); // Menggunakan status awal yang ingin diubah
+            
+            // $data = [
+            // ('status','Belum Lunas')
+            // ];
 
-            $data = [
-                'status' => 'Lunas'
-            ];
-
-            $Builder->update($data);
+            $Builder->update('status', 'Lunas');
 
             // Redirect to a success page or perform any other necessary actions
             return view('/salon/salonValidasiPembayaran');
