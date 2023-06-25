@@ -37,6 +37,7 @@ $routes->setAutoRoute(true); //Untuk mencari jalan sendiri ke database secara ot
 // === ROUTES UNTUK ASISTEN ===
 //asisten itu nama untuk mempersingkat nama dari asistencontroller
 use App\Controllers\AsistenController;
+use App\Controllers\SalonController;
 
 // $routes->get('asisten', 'AsistenController::index');
 // $routes->get('/asisten/edit', [AsistenController::class, 'edit']);
@@ -48,15 +49,39 @@ use App\Controllers\AsistenController;
 
 // $routes->match(['get', 'post'], 'asisten/simpan',[AsistenController::class, 'simpan']);
 
-$routes->get('/', 'Home::index');
-$routes->get('/asisten', 'AsistenController::index');
-$routes->match(['get', 'post'], 'asisten/simpan', [AsistenController::class, 'simpan']);
-$routes->match(['get', 'post'], 'asisten/update', [AsistenController::class, 'update']);
-$routes->match(['get', 'post'], 'asisten/delete', [AsistenController::class, 'delete']);
-$routes->match(['get', 'post'], 'asisten/search', [AsistenController::class, 'search']);
-$routes->match(['get', 'post'], 'asisten/login', [AsistenController::class, 'login']);
-$routes->match(['get', 'post'], 'asisten/check', [AsistenController::class, 'check']);
-$routes->match(['get', 'post'], 'asisten/logout', [AsistenController::class, 'logout']);
+// $routes->get('/', 'Home::index');
+// $routes->get('/asisten', 'AsistenController::index');
+// $routes->match(['get', 'post'], 'asisten/simpan', [AsistenController::class, 'simpan']);
+// $routes->match(['get', 'post'], 'asisten/update', [AsistenController::class, 'update']);
+// $routes->match(['get', 'post'], 'asisten/delete', [AsistenController::class, 'delete']);
+// $routes->match(['get', 'post'], 'asisten/search', [AsistenController::class, 'search']);
+// $routes->match(['get', 'post'], 'asisten/login', [AsistenController::class, 'login']);
+// $routes->match(['get', 'post'], 'asisten/check', [AsistenController::class, 'check']);
+// $routes->match(['get', 'post'], 'asisten/logout', [AsistenController::class, 'logout']);
+
+// =========== SALON CONTROLLER ===============
+$routes->get('/start', 'SalonController::salonStart');
+$routes->get('/home', 'SalonController::index');
+$routes->get('/homeL', 'SalonController::afterLogin');
+$routes->get('/homeAdmin', 'SalonController::homeAdmin');
+$routes->get('/salon/logout', 'SalonController::logout');
+
+$routes->match(['get', 'post'], 'salon/salonLogin', [SalonController::class, 'login']);
+$routes->match(['get', 'post'], 'salon/salonCheckLogin', [SalonController::class, 'checkLogin']);
+$routes->match(['get', 'post'], 'salon/salonLoginAdmin', [SalonController::class, 'loginAdmin']);
+$routes->match(['get', 'post'], 'salon/salonCheckLoginAdmin', [SalonController::class, 'checkLoginAdmin']);
+$routes->match(['get', 'post'], 'salon/salonRegister', [SalonController::class, 'register']);
+$routes->match(['get', 'post'], 'salon/salonCheckRegister', [SalonController::class, 'checkRegister']);
+$routes->match(['get', 'post'], 'salon/salonPricelist', [SalonController::class, 'list']);
+$routes->match(['get', 'post'], 'salon/salonPriceAdmin', [SalonController::class, 'listPriceAdmin']);
+$routes->match(['get', 'post'], 'salon/salonPricelistL', [SalonController::class, 'listLogin']);
+$routes->match(['get', 'post'], 'salon/salonTambahJasa', [SalonController::class, 'tambahJasa']);
+$routes->match(['get', 'post'], 'salon/salonHapusJasa', [SalonController::class, 'hapusJasa']);
+$routes->match(['get', 'post'], 'salon/simpanReservasi', [SalonController::class, 'simpanRev']);
+$routes->match(['get', 'post'], '/salon/salonValidasiPembayaran', [SalonController::class, 'ValidasiPembayaran']);
+$routes->match(['get', 'post'], '/salon/updateValidasi', [SalonController::class, 'updateValidasi']);
+
+
 
 // === ROUTES UNTUK PESAN ===  
 // use App\Controllers\Pesan;
