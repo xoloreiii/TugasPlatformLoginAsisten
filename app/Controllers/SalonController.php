@@ -46,8 +46,6 @@ class SalonController extends BaseController
         return view('/salon/salonPricelistL', $priceM);
     }
 
-
-
     public function index()
     {
         return view('/salon/salonHome');
@@ -60,8 +58,6 @@ class SalonController extends BaseController
 
     public function checkRegister()
     {
-        // $session = session();
-        // if ($session->has('pengguna')) {
         helper('form');
         // Memeriksa apakah melakukan submit data atau tidak.
         if (!$this->request->is('post')) {
@@ -77,9 +73,6 @@ class SalonController extends BaseController
         $model = model(salonModel::class);
         $model->simpan($post);
         return view('/salon/salonSuccess');
-        // } else {
-        //     return view('/salon/salonRegister');
-        // }
 
     }
 
@@ -232,27 +225,6 @@ class SalonController extends BaseController
         ];
 
         return view('/salon/salonValidasiPembayaran', $bayar);
-    }
-
-    public function updateValidasi()
-    {
-        if ($this->request->getMethod() === 'post') {
-            //$status = $this->request->getPost('status');
-
-            $db = \Config\Database::connect();
-            $Builder = $db->table('booking');
-
-            $Builder->where('status', 'Belum Lunas'); // Menggunakan status awal yang ingin diubah
-            
-            // $data = [
-            // ('status','Belum Lunas')
-            // ];
-
-            $Builder->update('status', 'Lunas');
-
-            // Redirect to a success page or perform any other necessary actions
-            return view('/salon/salonValidasiPembayaran');
-        }
     }
 
     public function logout() //remove attribut session pengguna

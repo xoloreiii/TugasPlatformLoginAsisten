@@ -66,18 +66,25 @@ $routes->get('/homeL', 'SalonController::afterLogin');
 $routes->get('/homeAdmin', 'SalonController::homeAdmin');
 $routes->get('/salon/logout', 'SalonController::logout');
 
-$routes->match(['get', 'post'], 'salon/salonLogin', [SalonController::class, 'login']);
-$routes->match(['get', 'post'], 'salon/salonCheckLogin', [SalonController::class, 'checkLogin']);
+
+// ===== ADMIN =====
 $routes->match(['get', 'post'], 'salon/salonLoginAdmin', [SalonController::class, 'loginAdmin']);
 $routes->match(['get', 'post'], 'salon/salonCheckLoginAdmin', [SalonController::class, 'checkLoginAdmin']);
+
+
+// ===== MEMBER  & GUEST =====
 $routes->match(['get', 'post'], 'salon/salonRegister', [SalonController::class, 'register']);
 $routes->match(['get', 'post'], 'salon/salonCheckRegister', [SalonController::class, 'checkRegister']);
+
+$routes->match(['get', 'post'], 'salon/salonLogin', [SalonController::class, 'login']);
+$routes->match(['get', 'post'], 'salon/salonCheckLogin', [SalonController::class, 'checkLogin']);
+$routes->match(['get', 'post'], 'salon/salonPricelistL', [SalonController::class, 'listLogin']);
+$routes->match(['get', 'post'], 'salon/simpanReservasi', [SalonController::class, 'simpanRev']);
+
 $routes->match(['get', 'post'], 'salon/salonPricelist', [SalonController::class, 'list']);
 $routes->match(['get', 'post'], 'salon/salonPriceAdmin', [SalonController::class, 'listPriceAdmin']);
-$routes->match(['get', 'post'], 'salon/salonPricelistL', [SalonController::class, 'listLogin']);
 $routes->match(['get', 'post'], 'salon/salonTambahJasa', [SalonController::class, 'tambahJasa']);
 $routes->match(['get', 'post'], 'salon/salonHapusJasa', [SalonController::class, 'hapusJasa']);
-$routes->match(['get', 'post'], 'salon/simpanReservasi', [SalonController::class, 'simpanRev']);
 $routes->match(['get', 'post'], '/salon/salonValidasiPembayaran', [SalonController::class, 'ValidasiPembayaran']);
 $routes->match(['get', 'post'], '/salon/updateValidasi', [SalonController::class, 'updateValidasi']);
 
